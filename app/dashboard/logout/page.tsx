@@ -3,32 +3,23 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle, LogOut, XCircle } from "lucide-react"
-import { Adminouter } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
 export default function LogoutPage() {
-  const router = Adminouter()
+  const router = useRouter()
   const [isLoggingOut, setIsLoggingOut] = useState(false)
   const [logoutSuccess, setLogoutSuccess] = useState<boolean | null>(null)
 
-  useEffect(() => {
-    // Optional: Automatically log out after a short delay if Admin lands here directly
-    // if (!isLoggingOut && logoutSuccess === null) {
-    //   handleLogout();
-    // }
-  }, [])
-
   const handleLogout = async () => {
     setIsLoggingOut(true)
-    setLogoutSuccess(null) // Reset status
+    setLogoutSuccess(null)
 
-    // Simulate API call for logout
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500)) // Simulate network delay
-      // In a real app, you'd clear auth tokens, session, etc.
+      await new Promise((resolve) => setTimeout(resolve, 1500))
       setLogoutSuccess(true)
       setTimeout(() => {
-        router.push("/login") // Redirect to login page after successful logout
+        router.push("/login")
       }, 1000)
     } catch (error) {
       console.error("Logout failed:", error)
