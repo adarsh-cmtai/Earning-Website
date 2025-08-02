@@ -33,20 +33,20 @@ const team = [
   {
     name: "Rajesh Kumar",
     role: "Founder & CEO",
-    image: "/images/home/testimonial1.jpg",
+    image: "/images/Home/testimonial1.jpg",
     description: "Visionary leader with 15+ years in AI and digital platforms.",
   },
   {
     name: "Priya Sharma",
     role: "Chief Technology Officer",
-    image: "/images/home/testimonial1.jpg",
+    image: "/images/Home/testimonial1.jpg",
     description:
       "AI research pioneer and specialist in generative content systems.",
   },
   {
     name: "Amit Patel",
     role: "Head of Operations",
-    image: "/images/home/testimonial1.jpg",
+    image: "/images/Home/testimonial1.jpg",
     description:
       "Digital marketing ecosystem expert ensuring seamless user experience.",
   },
@@ -58,21 +58,21 @@ const values = [
     title: "Mission-Driven",
     description:
       "To democratize income opportunities through AI-powered content and strategic networking.",
-    bgUrl: "/images/home/testimonial1.jpg",
+    bgUrl: "/images/Home/testimonial1.jpg",
   },
   {
     icon: Users,
     title: "Community First",
     description:
       "Connecting like-minded individuals who support each other's growth and success.",
-    bgUrl: "/images/home/testimonial1.jpg",
+    bgUrl: "/images/Home/testimonial1.jpg",
   },
   {
     icon: Shield,
     title: "Unwavering Trust",
     description:
       "Your data and earnings are protected with bank-grade security and complete transparency.",
-    bgUrl: "/images/home/testimonial1.jpg",
+    bgUrl: "/images/Home/testimonial1.jpg",
   },
 ];
 
@@ -325,7 +325,7 @@ export default function AboutPage() {
             <div className="container mx-auto px-4">
                 <motion.div className="grid grid-cols-1 md:grid-cols-3 items-center gap-12" initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} viewport={{once: true}} transition={{duration: 0.8, ease: "easeOut"}}>
                     <div className="md:col-span-1 flex justify-center">
-                        <Image src="/images/home/testimonial1.jpg" alt="Rajesh Kumar" width={160} height={160} className="rounded-full object-cover ring-4 ring-primary/50" />
+                        <Image src="/images/Home/testimonial1.jpg" alt="Rajesh Kumar" width={160} height={160} className="rounded-full object-cover ring-4 ring-primary/50" />
                     </div>
                     <div className="md:col-span-2 text-center md:text-left">
                         <QuoteIcon className="w-16 h-16 text-primary/30 mb-4" />
