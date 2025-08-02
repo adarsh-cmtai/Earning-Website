@@ -21,12 +21,7 @@ const allSidebarNavItems = [
   { href: "/admin/income", label: "Income & Payouts", icon: DollarSign, allowedRoles: ['FINANCE', 'SUPER_ADMIN'] },
   { href: "/admin/income-verification", label: "Income Verification", icon: Coins, allowedRoles: ['FINANCE', 'SUPER_ADMIN'] },
   { href: "/admin/support", label: "Support Center", icon: LifeBuoy, allowedRoles: ['USER_MANAGER', 'SUPER_ADMIN'] },
-  {
-    href: "/admin/blog",
-    label: "Blog",
-    icon: BookOpen,
-    allowedRoles: ["CONTENT_MANAGER", "SUPER_ADMIN"],
-  },
+  { href: "/admin/blog", label: "Blog", icon: BookOpen, allowedRoles: ["CONTENT_MANAGER", "SUPER_ADMIN"] },
   { href: "/admin/content", label: "Content Mgmt", icon: FileText, allowedRoles: ['CONTENT_MANAGER', 'SUPER_ADMIN'] },
   { href: "/admin/reports", label: "Reports", icon: BarChart2, allowedRoles: ['SUPER_ADMIN'] },
   { href: "/admin/security", label: "Security", icon: Shield, allowedRoles: ['SUPER_ADMIN'] },
@@ -71,7 +66,7 @@ export function Sidebar({ isMobileOpen, onClose }: SidebarProps) {
 
   const sidebarContent = (
     <div className="flex h-full max-h-screen flex-col">
-      <div className="flex h-16 items-center justify-between border-b border-border/60 px-4 lg:px-6">
+      <div className="flex h-16 shrink-0 items-center justify-between border-b border-border/60 px-4 lg:px-6">
         <Link href="/admin/dashboard" className="flex items-center gap-2.5 font-bold">
           <Bot className="h-6 w-6 text-teal-500" />
           <span className="text-lg text-foreground">Admin Panel</span>
@@ -106,7 +101,7 @@ export function Sidebar({ isMobileOpen, onClose }: SidebarProps) {
         </nav>
       </div>
 
-      <div className="mt-auto space-y-2 border-t border-border/60 p-4">
+      <div className="mt-auto shrink-0 space-y-2 border-t border-border/60 p-4">
         <Button asChild variant="outline" className="w-full justify-start">
             <Link href="/">
                 <Home className="mr-2 h-4 w-4" />
@@ -127,10 +122,13 @@ export function Sidebar({ isMobileOpen, onClose }: SidebarProps) {
 
   return (
     <>
-      {isMobileOpen && (
-        <div className="fixed inset-0 z-30 bg-black/80 backdrop-blur-sm md:hidden" onClick={onClose} />
-      )}
-      <aside className={`fixed inset-y-0 left-0 z-40 w-64 border-r bg-background transition-transform duration-300 ease-in-out md:static md:translate-x-0 ${isMobileOpen ? "translate-x-0" : "-translate-x-full"}`}>
+      <div className={`fixed inset-0 z-30 bg-black/80 backdrop-blur-sm md:hidden ${isMobileOpen ? 'block' : 'hidden'}`} onClick={onClose} />
+      
+      <aside className="hidden w-64 flex-shrink-0 border-r bg-background md:block">
+        {sidebarContent}
+      </aside>
+
+      <aside className={`fixed inset-y-0 left-0 z-40 w-64 border-r bg-background transition-transform duration-300 ease-in-out md:hidden ${isMobileOpen ? "translate-x-0" : "-translate-x-full"}`}>
         {sidebarContent}
       </aside>
     </>
