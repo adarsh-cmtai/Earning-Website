@@ -3,18 +3,16 @@
 import { useState, useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/lib/redux/store";
-import { fetchIncomeProfiles, markAsPaid } from "@/lib/redux/features/admin/financeSlice";
+import { fetchIncomeProfiles, markAsPaid, sendBulkContributionAlerts } from "@/lib/redux/features/admin/financeSlice";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 import { MoreHorizontal, Wallet, Banknote, AlertCircle, Ban, Search, CheckCircle, Percent, AlertTriangle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { type UserIncomeProfile } from "@/lib/types";
-import { BulkPayoutModal } from "@/components/admin/income/BulkPayoutModal";
 import { SuspendIncomeModal } from "@/components/admin/income/SuspendIncomeModal";
 import { SetContributionModal } from "@/components/admin/income/SetContributionModal";
 import { SendAlertModal } from "@/components/admin/income/SendAlertModal";
@@ -24,15 +22,15 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 const TableSkeletonRow = () => (
     <TableRow>
-        <TableCell className="w-[50px]"><Skeleton className="h-5 w-5" /></TableCell>
         <TableCell>
             <div className="space-y-2">
                 <Skeleton className="h-4 w-32" />
                 <Skeleton className="h-3 w-48" />
             </div>
         </TableCell>
-        <TableCell><Skeleton className="h-4 w-24" /></TableCell>
-        <TableCell><Skeleton className="h-4 w-24" /></TableCell>
+        <TableCell><Skeleton className="h-6 w-20 rounded-full" /></TableCell>
+        <TableCell><Skeleton className="h-4 w-16" /></TableCell>
+        <TableCell><Skeleton className="h-6 w-20 rounded-full" /></TableCell>
         <TableCell className="w-[80px] text-right"><Skeleton className="h-8 w-8 ml-auto rounded-full" /></TableCell>
     </TableRow>
 );
@@ -41,27 +39,18 @@ export default function IncomePage() {
     const dispatch = useDispatch<AppDispatch>();
     const { profiles: userIncomes, status } = useSelector((state: RootState) => state.adminFinance);
 
-    const [selectedUsers, setSelectedUsers] = useState<string[]>([]);
-    const [modalState, setModalState] = useState<{ type: 'payout' | 'suspend' | 'contribution' | 'alert' | null, user: UserIncomeProfile | null }>({ type: null, user: null });
+    const [modalState, setModalState] = useState<{ type: 'suspend' | 'contribution' | 'alert' | null, user: UserIncomeProfile | null }>({ type: null, user: null });
     const [searchTerm, setSearchTerm] = useState('');
-    const [activeTab, setActiveTab] = useState("payouts");
+    const [activeTab, setActiveTab] = useState("contributions");
 
     const debouncedSearchTerm = useDebounce(searchTerm, 300);
 
     useEffect(() => {
-        dispatch(fetchIncomeProfiles({ search: debouncedSearchTerm, contributionStatus: activeTab === 'contributions' ? 'all' : undefined }));
-    }, [dispatch, debouncedSearchTerm, activeTab]);
+        dispatch(fetchIncomeProfiles({ search: debouncedSearchTerm }));
+    }, [dispatch, debouncedSearchTerm]);
 
-    const handleSelectUser = (userId: string) => {
-        setSelectedUsers(prev => prev.includes(userId) ? prev.filter(id => id !== userId) : [...prev, userId]);
-    };
-
-    const handleSelectAll = (checked: boolean | "indeterminate") => {
-        setSelectedUsers(checked === true ? userIncomes.map(u => u._id) : []);
-    };
-
-    const openModal = (type: 'payout' | 'suspend' | 'contribution' | 'alert', user?: UserIncomeProfile) => {
-        setModalState({ type, user: user || null });
+    const openModal = (type: 'suspend' | 'contribution' | 'alert', user: UserIncomeProfile) => {
+        setModalState({ type, user });
     };
 
     const closeModal = () => setModalState({ type: null, user: null });
@@ -75,22 +64,30 @@ export default function IncomePage() {
             toast.error(error.message || "Failed to update status.", { id: toastId });
         }
     };
+
+    const handleSendBulkReminders = async () => {
+        const toastId = toast.loading("Sending bulk reminders to all due users...");
+        try {
+            const result = await dispatch(sendBulkContributionAlerts()).unwrap();
+            toast.success(`${result.count} contribution reminders sent successfully.`, { id: toastId });
+        } catch (error: any) {
+            toast.error(error.message || "Failed to send reminders.", { id: toastId });
+        }
+    };
     
     const summaryStats = useMemo(() => {
+        const contributionsDueUsers = userIncomes.filter(u => u.contributionStatus !== "Paid");
+        const totalDueAmount = contributionsDueUsers.reduce((sum, u) => {
+            const due = ((u.currentBalance || 0) * u.suggestedContributionPercentage) / 100;
+            return sum + (due > 0 ? due : 0);
+        }, 0);
+
         return {
-            totalPending: userIncomes.reduce((sum, u) => sum + u.pendingPayout, 0),
-            contributionsDue: userIncomes.filter(u => u.contributionStatus !== "Paid").length,
+            totalContributionDue: totalDueAmount,
+            contributionsDueCount: contributionsDueUsers.length,
             incomeSuspended: userIncomes.filter(u => u.incomeStatus === "Suspended").length
         };
     }, [userIncomes]);
-
-    const selectedPayoutTotal = useMemo(() =>
-        userIncomes.filter(u => selectedUsers.includes(u._id)).reduce((sum, u) => sum + u.pendingPayout, 0),
-        [userIncomes, selectedUsers]
-    );
-
-    const isAllSelected = userIncomes.length > 0 && selectedUsers.length === userIncomes.length;
-    const isSomeSelected = selectedUsers.length > 0 && !isAllSelected;
 
     const getStatusBadge = (status: string) => {
         switch (status) {
@@ -113,28 +110,28 @@ export default function IncomePage() {
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div>
                         <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Income & Finance</h1>
-                        <p className="text-muted-foreground">Manage user payouts and contribution compliance.</p>
+                        <p className="text-muted-foreground">Manage user balances and contribution compliance.</p>
                     </div>
-                    {activeTab === 'payouts' && (
-                        <Button onClick={() => openModal('payout')} disabled={selectedUsers.length === 0} className="w-full sm:w-auto">
-                            Process Payout ({selectedUsers.length})
+                    {activeTab === 'contributions' && (
+                        <Button onClick={handleSendBulkReminders} className="w-full sm:w-auto">
+                           <Banknote className="mr-2 h-4 w-4" /> Send Bulk Due Reminders
                         </Button>
                     )}
                 </div>
 
                 <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-                    <Card><CardHeader className="flex flex-row items-center justify-between pb-2"><CardTitle className="text-sm font-medium">Total Pending Payouts</CardTitle><Wallet className="h-4 w-4 text-muted-foreground" /></CardHeader><CardContent><div className="text-2xl font-bold">₹{summaryStats.totalPending.toLocaleString()}</div></CardContent></Card>
-                    <Card><CardHeader className="flex flex-row items-center justify-between pb-2"><CardTitle className="text-sm font-medium">Contributions Due</CardTitle><Banknote className="h-4 w-4 text-muted-foreground" /></CardHeader><CardContent><div className="text-2xl font-bold">{summaryStats.contributionsDue} Users</div></CardContent></Card>
+                    <Card><CardHeader className="flex flex-row items-center justify-between pb-2"><CardTitle className="text-sm font-medium">Total Contribution Due</CardTitle><Wallet className="h-4 w-4 text-muted-foreground" /></CardHeader><CardContent><div className="text-2xl font-bold">₹{summaryStats.totalContributionDue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div></CardContent></Card>
+                    <Card><CardHeader className="flex flex-row items-center justify-between pb-2"><CardTitle className="text-sm font-medium">Users with Due Payments</CardTitle><Banknote className="h-4 w-4 text-muted-foreground" /></CardHeader><CardContent><div className="text-2xl font-bold">{summaryStats.contributionsDueCount} Users</div></CardContent></Card>
                     <Card><CardHeader className="flex flex-row items-center justify-between pb-2"><CardTitle className="text-sm font-medium">Income Suspended</CardTitle><AlertCircle className="h-4 w-4 text-muted-foreground" /></CardHeader><CardContent><div className="text-2xl font-bold">{summaryStats.incomeSuspended}</div></CardContent></Card>
                 </div>
 
                 <Card>
-                    <Tabs value={activeTab} onValueChange={(v) => { setActiveTab(v); setSelectedUsers([]); setSearchTerm(''); }}>
+                    <Tabs value={activeTab} onValueChange={setActiveTab}>
                         <CardHeader className="p-0">
                             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b p-4">
                                 <TabsList className="grid w-full grid-cols-2 sm:w-auto">
-                                    <TabsTrigger value="payouts">Payouts</TabsTrigger>
                                     <TabsTrigger value="contributions">Contributions</TabsTrigger>
+                                    <TabsTrigger value="balances">User Balances</TabsTrigger>
                                 </TabsList>
                                 <div className="relative w-full sm:w-auto">
                                     <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
@@ -143,29 +140,27 @@ export default function IncomePage() {
                             </div>
                         </CardHeader>
 
-                        <TabsContent value="payouts" className="mt-0">
+                        <TabsContent value="balances" className="mt-0">
                             <CardContent className="p-0">
                                 <div className="overflow-x-auto">
                                     <Table>
                                         <TableHeader>
                                             <TableRow>
-                                                <TableHead className="w-[50px]"><Checkbox checked={isSomeSelected ? 'indeterminate' : isAllSelected} onCheckedChange={handleSelectAll} /></TableHead>
                                                 <TableHead>User</TableHead>
                                                 <TableHead className="text-right">Total Earnings</TableHead>
-                                                <TableHead className="text-right">Pending Payout</TableHead>
+                                                <TableHead className="text-right">Current Balance</TableHead>
                                             </TableRow>
                                         </TableHeader>
                                         <TableBody>
                                             {status === 'loading' && [...Array(5)].map((_, i) => <TableSkeletonRow key={i} />)}
                                             {status === 'succeeded' && userIncomes.map((user) => (
-                                                <TableRow key={user._id} data-state={selectedUsers.includes(user._id) ? "selected" : undefined}>
-                                                    <TableCell><Checkbox checked={selectedUsers.includes(user._id)} onCheckedChange={() => handleSelectUser(user._id)} /></TableCell>
+                                                <TableRow key={user._id}>
                                                     <TableCell><div className="font-medium">{user.fullName}</div><div className="text-sm text-muted-foreground">{user.email}</div></TableCell>
-                                                    <TableCell className="text-right">₹{user.totalEarnings.toLocaleString()}</TableCell>
-                                                    <TableCell className="font-semibold text-right">₹{user.pendingPayout.toLocaleString()}</TableCell>
+                                                    <TableCell className="text-right">₹{(user.totalEarnings ?? 0).toLocaleString()}</TableCell>
+                                                    <TableCell className="font-semibold text-right">₹{(user.currentBalance ?? 0).toLocaleString()}</TableCell>
                                                 </TableRow>
                                             ))}
-                                            {status === 'succeeded' && userIncomes.length === 0 && <TableRow><TableCell colSpan={4} className="h-24 text-center">No users found.</TableCell></TableRow>}
+                                            {status === 'succeeded' && userIncomes.length === 0 && <TableRow><TableCell colSpan={3} className="h-24 text-center">No users found.</TableCell></TableRow>}
                                         </TableBody>
                                     </Table>
                                 </div>
@@ -217,7 +212,6 @@ export default function IncomePage() {
                 </Card>
             </main>
 
-            <BulkPayoutModal isOpen={modalState.type === 'payout'} onClose={closeModal} selectedUsers={selectedUsers} totalAmount={selectedPayoutTotal} />
             <SuspendIncomeModal isOpen={modalState.type === 'suspend'} onClose={closeModal} user={modalState.user} />
             <SetContributionModal isOpen={modalState.type === 'contribution'} onClose={closeModal} user={modalState.user} />
             <SendAlertModal isOpen={modalState.type === 'alert'} onClose={closeModal} user={modalState.user} />
