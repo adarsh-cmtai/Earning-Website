@@ -42,6 +42,10 @@ export const sendContributionAlert = createAsyncThunk<void, { userId: string; ti
     try { await axiosInstance.post(`/admin/alerts/send-user/${userId}`, data); } catch (error: any) { return rejectWithValue(error.response?.data?.message); }
 });
 
+export const sendBulkContributionAlerts = createAsyncThunk<{ count: number }>('admin/sendBulkDueAlerts', async (_, { rejectWithValue }) => {
+    try { const response = await axiosInstance.post('/admin/finance/send-bulk-due-alerts'); return response.data.data; } catch (error: any) { return rejectWithValue(error.response?.data?.message); }
+});
+
 const financeSlice = createSlice({
     name: 'adminFinance',
     initialState,
