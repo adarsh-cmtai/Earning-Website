@@ -11,12 +11,14 @@ interface UpdateBlogPostArgs {
 // State interface for admin blog management
 interface AdminBlogState {
   posts: BlogPost[];
+  currentPost: BlogPost | null;
   status: "idle" | "loading" | "succeeded" | "failed";
   error: string | null;
 }
 
 const initialState: AdminBlogState = {
   posts: [],
+  currentPost: null,
   status: "idle",
   error: null,
 };
@@ -36,6 +38,21 @@ export const fetchAllAdminBlogPosts = createAsyncThunk(
     } catch (error: any) {
       return rejectWithValue(
         error.response?.data.message || "Failed to fetch blog posts."
+      );
+    }
+  }
+);
+
+export const fetchBlogPostBySlug = createAsyncThunk(
+  "adminBlog/fetchBySlug",
+  async (slug: string, { rejectWithValue }) => {
+    try {
+      // Yeh public endpoint hai, isliye /user/blog se fetch karein
+      const response = await axiosInstance.get(`/user/blog/${slug}`);
+      return response.data.data as BlogPost; // Response structure ke hisab se .data
+    } catch (error: any) {
+      return rejectWithValue(
+        error.response?.data.message || "Failed to fetch post."
       );
     }
   }
@@ -104,9 +121,27 @@ export const deleteBlogPost = createAsyncThunk(
 const adminBlogSlice = createSlice({
   name: "adminBlog",
   initialState,
-  reducers: {},
+  reducers: {
+    clearCurrentPost: (state) => {
+        state.currentPost = null;
+    }
+  },
   extraReducers: (builder) => {
     builder
+
+    .addCase(fetchBlogPostBySlug.pending, (state) => {
+        state.status = 'loading';
+        state.currentPost = null;
+        state.error = null;
+      })
+      .addCase(fetchBlogPostBySlug.fulfilled, (state, action: PayloadAction<BlogPost>) => {
+        state.status = 'succeeded';
+        state.currentPost = action.payload;
+      })
+      .addCase(fetchBlogPostBySlug.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.payload as string;
+      })
       // Fetch All Posts
       .addCase(fetchAllAdminBlogPosts.pending, (state) => {
         state.status = "loading";
@@ -184,7 +219,10 @@ const adminBlogSlice = createSlice({
         state.status = "failed";
         state.error = action.payload as string;
       });
+
+      
   },
 });
 
+export const { clearCurrentPost } = adminBlogSlice.actions;
 export default adminBlogSlice.reducer;
