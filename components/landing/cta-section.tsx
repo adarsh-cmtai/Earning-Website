@@ -28,11 +28,11 @@ const itemVariants: Variants = {
 }
 
 const avatars = [
-  "/images/home/testimonial1.jpg",
-  "/images/home/testimonial1.jpg",
-  "/images/home/testimonial1.jpg",
-  "/images/home/testimonial1.jpg",
-  "/images/home/testimonial1.jpg",
+  "/images/Home/testimonial1.jpg",
+  "/images/Home/testimonial1.jpg",
+  "/images/Home/testimonial1.jpg",
+  "/images/Home/testimonial1.jpg",
+  "/images/Home/testimonial1.jpg",
 ]
 
 export function CtaSection() {
