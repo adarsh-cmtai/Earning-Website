@@ -39,7 +39,7 @@ export default function AdminLayout({
         isMobileOpen={isMobileMenuOpen} 
         onClose={handleCloseMenu} 
       />
-      <div className="flex flex-col flex-1">
+      <div className="flex flex-1 flex-col overflow-hidden">
         <Header onMenuClick={() => setIsMobileMenuOpen(true)} />
         <main className="flex-1 overflow-y-auto p-4 lg:p-6">
           <div className="mx-auto max-w-7xl">
