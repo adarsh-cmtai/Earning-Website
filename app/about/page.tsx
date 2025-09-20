@@ -80,13 +80,13 @@ const storyChapters = [
   {
     icon: Lightbulb,
     title: "The Genesis",
-    year: "2023",
+    year: "2025",
     text: "Born from a simple observation: millions of talented individuals lack access to sustainable digital income. We envisioned a platform combining AI with community power.",
   },
   {
     icon: Rocket,
     title: "The Launch",
-    year: "2023",
+    year: "2025",
     text: "UEIEP was launched to create a platform where anyone can build multiple income streams, focusing on a decentralized, community-driven future.",
   },
   {
@@ -120,7 +120,13 @@ const techPillars = [
   },
 ];
 
-const AnimatedCounter = ({ to, isCurrency = false }: { to: number, isCurrency?: boolean }) => {
+const AnimatedCounter = ({
+  to,
+  isCurrency = false,
+}: {
+  to: number;
+  isCurrency?: boolean;
+}) => {
   const count = useMotionValue(0);
   const rounded = useTransform(count, (latest) =>
     isCurrency
@@ -199,7 +205,6 @@ export default function AboutPage() {
     offset: ["start end", "start start"],
   });
 
-
   return (
     <div className="bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-200">
       <Header />
@@ -248,21 +253,52 @@ export default function AboutPage() {
         </section>
 
         <section className="py-12 md:py-12">
-            <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: "easeOut" }}>
-                        <Image src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2084&auto=format&fit=crop" alt="Group of diverse people connecting" width={600} height={400} className="rounded-2xl object-cover" />
-                    </motion.div>
-                    <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}>
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-br from-slate-900 to-slate-700 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent">Our Philosophy: Bridging the Aspiration Gap</h2>
-                        <p className="mt-6 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">In a digitally connected India, talent is everywhere, but opportunity is not. We saw a gap between the aspirations of millions and the accessible platforms to realize them. UEIEP was born to be that bridge.</p>
-                        <p className="mt-4 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">We believe in democratizing digital success, providing powerful AI tools and a robust community framework that empowers anyone, anywhere, to build a sustainable online income stream.</p>
-                    </motion.div>
-                </div>
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                <Image
+                  src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2084&auto=format&fit=crop"
+                  alt="Group of diverse people connecting"
+                  width={600}
+                  height={400}
+                  className="rounded-2xl object-cover"
+                />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              >
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-br from-slate-900 to-slate-700 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent">
+                  Our Philosophy: Bridging the Aspiration Gap
+                </h2>
+                <p className="mt-6 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                  In a digitally connected India, talent is everywhere, but
+                  opportunity is not. We saw a gap between the aspirations of
+                  millions and the accessible platforms to realize them. UEIEP
+                  was born to be that bridge.
+                </p>
+                <p className="mt-4 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                  We believe in democratizing digital success, providing
+                  powerful AI tools and a robust community framework that
+                  empowers anyone, anywhere, to build a sustainable online
+                  income stream.
+                </p>
+              </motion.div>
             </div>
+          </div>
         </section>
 
-        <section ref={timelineRef} className="py-12 md:py-12 bg-gray-50 dark:bg-slate-950">
+        <section
+          ref={timelineRef}
+          className="py-12 md:py-12 bg-gray-50 dark:bg-slate-950"
+        >
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
               <div className="lg:sticky top-28">
@@ -279,12 +315,23 @@ export default function AboutPage() {
                 <motion.div className="absolute left-6 top-0 bottom-0 w-px origin-top">
                   <svg width="2" height="100%" className="h-full">
                     <motion.line
-                      x1="1" y1="0" x2="1" y2="100%"
-                      stroke="url(#gradient)" strokeWidth="2"
+                      x1="1"
+                      y1="0"
+                      x2="1"
+                      y2="100%"
+                      stroke="url(#gradient)"
+                      strokeWidth="2"
                       style={{ pathLength: timelineProgress }}
                     />
                     <defs>
-                      <linearGradient id="gradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="800">
+                      <linearGradient
+                        id="gradient"
+                        gradientUnits="userSpaceOnUse"
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="800"
+                      >
                         <stop stopColor="#14b8a6" />
                         <stop offset="1" stopColor="#67e8f9" stopOpacity="0" />
                       </linearGradient>
@@ -322,21 +369,35 @@ export default function AboutPage() {
         </section>
 
         <section className="py-12 md:py-12 bg-slate-800 text-white">
-            <div className="container mx-auto px-4">
-                <motion.div className="grid grid-cols-1 md:grid-cols-3 items-center gap-12" initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} viewport={{once: true}} transition={{duration: 0.8, ease: "easeOut"}}>
-                    <div className="md:col-span-1 flex justify-center">
-                        <Image src="/images/Home/testimonial1.jpg" alt="Rajesh Kumar" width={160} height={160} className="rounded-full object-cover ring-4 ring-primary/50" />
-                    </div>
-                    <div className="md:col-span-2 text-center md:text-left">
-                        <QuoteIcon className="w-16 h-16 text-primary/30 mb-4" />
-                        <blockquote className="text-2xl md:text-3xl font-medium leading-snug">
-                            We didn't just build a tool; we forged a movement. A movement of creators, earners, and dreamers who are reshaping their own futures, one day at a time.
-                        </blockquote>
-                        <p className="mt-6 text-xl font-bold">Rajesh Kumar</p>
-                        <p className="text-primary">Founder & CEO, UEIEP</p>
-                    </div>
-                </motion.div>
-            </div>
+          <div className="container mx-auto px-4">
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-3 items-center gap-12"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <div className="md:col-span-1 flex justify-center">
+                <Image
+                  src="/images/Home/testimonial1.jpg"
+                  alt="Rajesh Kumar"
+                  width={160}
+                  height={160}
+                  className="rounded-full object-cover ring-4 ring-primary/50"
+                />
+              </div>
+              <div className="md:col-span-2 text-center md:text-left">
+                <QuoteIcon className="w-16 h-16 text-primary/30 mb-4" />
+                <blockquote className="text-2xl md:text-3xl font-medium leading-snug">
+                  We didn't just build a tool; we forged a movement. A movement
+                  of creators, earners, and dreamers who are reshaping their own
+                  futures, one day at a time.
+                </blockquote>
+                <p className="mt-6 text-xl font-bold">""</p>
+                <p className="text-primary">Founder & CEO, UEIEP</p>
+              </div>
+            </motion.div>
+          </div>
         </section>
 
         <section className="py-12 md:py-12 bg-white dark:bg-slate-900">
@@ -362,7 +423,11 @@ export default function AboutPage() {
                       <motion.div
                         layoutId="active-value"
                         className="absolute inset-0 rounded-xl bg-slate-100 dark:bg-slate-800"
-                        transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 300,
+                          damping: 25,
+                        }}
                       />
                     )}
                     <div className="relative z-10 flex items-center gap-4">
@@ -403,9 +468,7 @@ export default function AboutPage() {
                   </motion.div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                   <div className="absolute bottom-0 p-8 text-white">
-                    <h3 className="text-2xl font-bold">
-                      {hoveredValue.title}
-                    </h3>
+                    <h3 className="text-2xl font-bold">{hoveredValue.title}</h3>
                     <p className="mt-2 text-slate-300">
                       {hoveredValue.description}
                     </p>
@@ -417,23 +480,40 @@ export default function AboutPage() {
         </section>
 
         <section className="py-12 md:py-12 bg-gray-50 dark:bg-slate-950">
-            <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div className="lg:pr-12">
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-br from-slate-900 to-slate-700 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent">Built on Trust, Powered by Innovation</h2>
-                        <p className="mt-6 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">Our platform is more than just a concept. It's a robust technological ecosystem engineered for performance, security, and transparency.</p>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                        {techPillars.map((pillar, index) => (
-                            <motion.div key={pillar.title} className="p-6 bg-white dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700/50" initial={{opacity: 0, y: 30}} whileInView={{opacity: 1, y: 0}} viewport={{once: true}} transition={{duration: 0.5, delay: index * 0.1}}>
-                                <pillar.icon className="h-8 w-8 text-primary mb-4" />
-                                <h3 className="font-semibold text-lg text-slate-800 dark:text-slate-100 mb-2">{pillar.title}</h3>
-                                <p className="text-sm text-slate-600 dark:text-slate-400">{pillar.description}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="lg:pr-12">
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-br from-slate-900 to-slate-700 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent">
+                  Built on Trust, Powered by Innovation
+                </h2>
+                <p className="mt-6 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Our platform is more than just a concept. It's a robust
+                  technological ecosystem engineered for performance, security,
+                  and transparency.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                {techPillars.map((pillar, index) => (
+                  <motion.div
+                    key={pillar.title}
+                    className="p-6 bg-white dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700/50"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <pillar.icon className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="font-semibold text-lg text-slate-800 dark:text-slate-100 mb-2">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">
+                      {pillar.description}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
             </div>
+          </div>
         </section>
 
         <section className="relative py-12 md:py-12 bg-white dark:bg-slate-900 overflow-hidden">
@@ -455,32 +535,53 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-        
+
         <section className="py-16 md:py-16 bg-gray-50 dark:bg-slate-950">
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-br from-slate-900 to-slate-700 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent">Our Impact in Numbers</h2>
-                    <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mt-4">We measure our success by the success of our community. Here's a snapshot of what we've achieved together.</p>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-                    <div className="p-8 text-center bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 rounded-2xl">
-                        <p className="text-5xl font-bold text-primary dark:text-teal-400"><AnimatedCounter to={10000} />+</p>
-                        <p className="mt-2 text-slate-600 dark:text-slate-400">Members Joined</p>
-                    </div>
-                    <div className="p-8 text-center bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 rounded-2xl">
-                        <p className="text-5xl font-bold text-primary dark:text-teal-400"><AnimatedCounter to={5000} isCurrency={true} />+</p>
-                        <p className="mt-2 text-slate-600 dark:text-slate-400">Earnings Distributed</p>
-                    </div>
-                    <div className="p-8 text-center bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 rounded-2xl">
-                        <p className="text-5xl font-bold text-primary dark:text-teal-400"><AnimatedCounter to={25} />+</p>
-                        <p className="mt-2 text-slate-600 dark:text-slate-400">States Covered</p>
-                    </div>
-                     <div className="p-8 text-center bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 rounded-2xl">
-                        <p className="text-5xl font-bold text-primary dark:text-teal-400">100%</p>
-                        <p className="mt-2 text-slate-600 dark:text-slate-400">Automated Daily Payouts</p>
-                    </div>
-                </div>
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-br from-slate-900 to-slate-700 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent">
+                Our Impact in Numbers
+              </h2>
+              <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mt-4">
+                We measure our success by the success of our community. Here's a
+                snapshot of what we've achieved together.
+              </p>
             </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+              <div className="p-8 text-center bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 rounded-2xl">
+                <p className="text-5xl font-bold text-primary dark:text-teal-400">
+                  <AnimatedCounter to={10000} />+
+                </p>
+                <p className="mt-2 text-slate-600 dark:text-slate-400">
+                  Members Joined
+                </p>
+              </div>
+              <div className="p-8 text-center bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 rounded-2xl">
+                <p className="text-5xl font-bold text-primary dark:text-teal-400">
+                  <AnimatedCounter to={5000} isCurrency={true} />+
+                </p>
+                <p className="mt-2 text-slate-600 dark:text-slate-400">
+                  Earnings Distributed
+                </p>
+              </div>
+              <div className="p-8 text-center bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 rounded-2xl">
+                <p className="text-5xl font-bold text-primary dark:text-teal-400">
+                  <AnimatedCounter to={25} />+
+                </p>
+                <p className="mt-2 text-slate-600 dark:text-slate-400">
+                  States Covered
+                </p>
+              </div>
+              <div className="p-8 text-center bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 rounded-2xl">
+                <p className="text-5xl font-bold text-primary dark:text-teal-400">
+                  100%
+                </p>
+                <p className="mt-2 text-slate-600 dark:text-slate-400">
+                  Automated Daily Payouts
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section className="py-16 md:py-16 bg-white dark:bg-slate-900">
@@ -495,7 +596,8 @@ export default function AboutPage() {
                   Ready to Write Your Success Story?
                 </h2>
                 <p className="mt-4 text-lg text-slate-300 max-w-2xl mx-auto">
-                  Join a community that's built to help you grow, earn, and succeed in the digital age.
+                  Join a community that's built to help you grow, earn, and
+                  succeed in the digital age.
                 </p>
                 <div className="mt-8">
                   <Link

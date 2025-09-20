@@ -82,96 +82,170 @@ export default function RefundPolicyPage() {
       <Header />
       <main>
         <section className="py-10 md:py-10 relative text-center overflow-hidden">
-            <div className="absolute inset-0 z-0 bg-gradient-to-b from-gray-50/40 dark:from-teal-900/30 via-white dark:via-slate-950 to-white dark:to-slate-950"></div>
-            <div className="absolute inset-0 z-0 opacity-20 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
-            
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="container mx-auto px-4 relative z-10"
-            >
-                <div className="relative inline-flex h-20 w-20 items-center justify-center rounded-full mx-auto mb-6 bg-primary/10 dark:bg-teal-500/10 border border-primary/20 dark:border-teal-500/20">
-                    <DollarSign className="h-10 w-10 text-primary dark:text-teal-300" />
-                </div>
-                <h1 className="text-4xl md:text-6xl font-extrabold mb-4 bg-gradient-to-br from-gray-900 to-gray-600 dark:from-white dark:to-slate-400 bg-clip-text text-transparent">
-                    Refund & Cancellation Policy
-                </h1>
-                <p className="text-lg md:text-xl text-gray-600 dark:text-slate-400 mb-4 max-w-3xl mx-auto">
-                    Clear, transparent, and fair. Understand our approach to refunds and account finances.
-                </p>
-                <p className="text-gray-500 dark:text-slate-500 text-sm">Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-            </motion.div>
+          <div className="absolute inset-0 z-0 bg-gradient-to-b from-gray-50/40 dark:from-teal-900/30 via-white dark:via-slate-950 to-white dark:to-slate-950"></div>
+          <div className="absolute inset-0 z-0 opacity-20 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="container mx-auto px-4 relative z-10"
+          >
+            <div className="relative inline-flex h-20 w-20 items-center justify-center rounded-full mx-auto mb-6 bg-primary/10 dark:bg-teal-500/10 border border-primary/20 dark:border-teal-500/20">
+              <DollarSign className="h-10 w-10 text-primary dark:text-teal-300" />
+            </div>
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-4 bg-gradient-to-br from-gray-900 to-gray-600 dark:from-white dark:to-slate-400 bg-clip-text text-transparent">
+              Refund & Cancellation Policy
+            </h1>
+            <p className="text-lg md:text-xl text-gray-600 dark:text-slate-400 mb-4 max-w-3xl mx-auto">
+              Clear, transparent, and fair. Understand our approach to refunds
+              and account finances.
+            </p>
+            <p className="text-gray-500 dark:text-slate-500 text-sm">
+              Last updated:{" "}
+              {new Date().toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </p>
+          </motion.div>
         </section>
 
         <section className="py-10 md:py-10">
           <div className="container mx-auto px-4 max-w-6xl space-y-12">
-            
             <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
             >
-                <h2 className="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">Our Core Principles</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {principles.map((item, index) => {
-                        const colors = getPrincipleColors(item.color);
-                        return (
-                            <div key={index} className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-xl p-6 text-center transform hover:-translate-y-1 transition-transform duration-300">
-                                <div className={`w-12 h-12 ${colors.bg} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                                    <item.icon className={`h-6 w-6 ${colors.text}`} />
-                                </div>
-                                <h3 className="font-semibold text-gray-800 dark:text-slate-200 mb-2">{item.title}</h3>
-                                <p className="text-sm text-gray-600 dark:text-slate-400">{item.text}</p>
-                            </div>
-                        )
-                    })}
-                </div>
+              <h2 className="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+                Our Core Principles
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {principles.map((item, index) => {
+                  const colors = getPrincipleColors(item.color);
+                  return (
+                    <div
+                      key={index}
+                      className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-xl p-6 text-center transform hover:-translate-y-1 transition-transform duration-300"
+                    >
+                      <div
+                        className={`w-12 h-12 ${colors.bg} rounded-full flex items-center justify-center mx-auto mb-4`}
+                      >
+                        <item.icon className={`h-6 w-6 ${colors.text}`} />
+                      </div>
+                      <h3 className="font-semibold text-gray-800 dark:text-slate-200 mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 dark:text-slate-400">
+                        {item.text}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
             </motion.div>
 
             <PolicySection icon={FileText} title="1. General Policy">
-                <p>The Universal Employment & Income Empowerment Platform (UEIEP) is built on a performance-based earning model. This means that the income you generate through daily tasks, Social Media content, and referrals is earned income. This policy outlines how we handle finances related to your account.</p>
-                <InfoBox icon={CheckCircle} title="Scope of this Policy">
-                    This policy applies to all registered Admins and covers all financial aspects of the platform, including earned income and any future paid services. We reserve the right to update this policy and will notify Admins of any significant changes.
-                </InfoBox>
+              <p>
+                The Universal Employment & Income Empowerment Platform (UEIEP)
+                is built on a performance-based earning model. This means that
+                the income you generate through daily tasks, Social Media
+                content, and referrals is earned income. This policy outlines
+                how we handle finances related to your account.
+              </p>
+              <InfoBox icon={CheckCircle} title="Scope of this Policy">
+                This policy applies to all registered Users and covers all
+                financial aspects of the platform, including earned income and
+                any future paid services. We reserve the right to update this
+                policy and will notify Users of any significant changes.
+              </InfoBox>
             </PolicySection>
 
             <PolicySection icon={Receipt} title="2. Earnings & Withdrawals">
-                <h3>Non-Refundable Earnings</h3>
-                <p>Once your earnings are successfully processed and transferred from your UEIEP wallet to your verified UPI ID, the transaction is considered final and cannot be refunded or reversed. Please ensure your payment details are correct before initiating any withdrawal.</p>
-                <h3>Failed Withdrawals</h3>
-                <p>If a withdrawal fails due to incorrect UPI information or technical issues, the funds will be automatically credited back to your UEIEP account balance. If the amount does not reflect within 7 business days, please contact our support team with the transaction details for assistance.</p>
-                 <InfoBox icon={AlertTriangle} title="Fraudulent Activity" variant="warning">
-                    Any earnings acquired through system manipulation, fraudulent referrals, or any other violation of our Terms of Service will be forfeited. Such funds are not eligible for withdrawal and will be permanently removed from the account.
-                </InfoBox>
+              <h3>Non-Refundable Earnings</h3>
+              <p>
+                Once your earnings are successfully processed and transferred
+                from your UEIEP wallet to your verified UPI ID, the transaction
+                is considered final and cannot be refunded or reversed. Please
+                ensure your payment details are correct before initiating any
+                withdrawal.
+              </p>
+              <h3>Failed Withdrawals</h3>
+              <p>
+                If a withdrawal fails due to incorrect UPI information or
+                technical issues, the funds will be automatically credited back
+                to your UEIEP account balance. If the amount does not reflect
+                within 7 business days, please contact our support team with the
+                transaction details for assistance.
+              </p>
+              <InfoBox
+                icon={AlertTriangle}
+                title="Fraudulent Activity"
+                variant="warning"
+              >
+                Any earnings acquired through system manipulation, fraudulent
+                referrals, or any other violation of our Terms of Service will
+                be forfeited. Such funds are not eligible for withdrawal and
+                will be permanently removed from the account.
+              </InfoBox>
             </PolicySection>
 
             <PolicySection icon={Ban} title="3. Policy on Paid Services">
-                <p>Currently, UEIEP is a free-to-use platform. We do not charge any registration or subscription fees. However, should we introduce optional paid services or premium features in the future, a specific refund policy for those services will be clearly stated at the time of purchase.</p>
+              <p>
+                Currently, UEIEP is a free-to-use platform. We do not charge any
+                registration or subscription fees. However, should we introduce
+                optional paid services or premium features in the future, a
+                specific refund policy for those services will be clearly stated
+                at the time of purchase.
+              </p>
             </PolicySection>
 
             <PolicySection icon={XCircle} title="4. Account Termination">
-                <h3>Termination by UEIEP</h3>
-                <p>If your account is terminated by our team due to a violation of our community guidelines or terms of service, any pending earnings and unused service credits (if applicable) will be forfeited and are not eligible for a refund or withdrawal.</p>
-                 <h3>Voluntary Account Closure</h3>
-                <p>If you choose to voluntarily close your account, you will be prompted to withdraw any remaining balance that meets the minimum withdrawal threshold. Once the account is closed, no further claims can be made.</p>
-            </PolicySection>
-            
-            <PolicySection icon={LifeBuoy} title="5. How to Contact Us">
-              <p>For any questions regarding this policy or issues with your account finances, please reach out to our dedicated support team.</p>
-               <ol>
-                  <li>1. Email our support desk at <strong>support@ueiep.com</strong>.</li>
-                  <li>2. Include your Admin ID and a clear description of your query.</li>
-                  <li>3. Our team aims to respond to all financial inquiries within 3-5 business days.</li>
-                </ol>
+              <h3>Termination by UEIEP</h3>
+              <p>
+                If your account is terminated by our team due to a violation of
+                our community guidelines or terms of service, any pending
+                earnings and unused service credits (if applicable) will be
+                forfeited and are not eligible for a refund or withdrawal.
+              </p>
+              <h3>Voluntary Account Closure</h3>
+              <p>
+                If you choose to voluntarily close your account, you will be
+                prompted to withdraw any remaining balance that meets the
+                minimum withdrawal threshold. Once the account is closed, no
+                further claims can be made.
+              </p>
             </PolicySection>
 
+            <PolicySection icon={LifeBuoy} title="5. How to Contact Us">
+              <p>
+                For any questions regarding this policy or issues with your
+                account finances, please reach out to our dedicated support
+                team.
+              </p>
+              <ol>
+                <li>
+                  1. Email our support desk at{" "}
+                  <strong>support@veranix-ai.com</strong>.
+                </li>
+                <li>
+                  2. Include your Admin ID and a clear description of your
+                  query.
+                </li>
+                <li>
+                  3. Our team aims to respond to all financial inquiries within
+                  3-5 business days.
+                </li>
+              </ol>
+            </PolicySection>
           </div>
         </section>
       </main>
 
       <Footer />
     </div>
-  )
+  );
 }

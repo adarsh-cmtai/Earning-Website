@@ -20,13 +20,13 @@ const contactMethods = [
   {
     icon: Mail,
     title: "Email Support",
-    contact: "support@ueiep.com",
+    contact: "support@veranix-ai.com",
     cta: "Send Email",
   },
   {
     icon: Phone,
     title: "Phone Support",
-    contact: "+91 9876543210",
+    contact: "+91 7629037269",
     cta: "Call Now",
   },
   {

@@ -18,7 +18,7 @@ const referralData = {
 
 const prewrittenMessages = {
   whatsapp: `🚀 Join UEIEP and transform your income! Earn daily by watching videos, creating AI content, and building your referral network. It's free to join! Click here: ${referralData.referralLink} #UEIEP #EarnOnline #PassiveIncome`,
-  telegram: `🔥 Ready to boost your earnings? UEIEP offers daily assignments, AI video creation, and a powerful 5-level referral system. Start your journey to financial freedom today! ${referralData.referralLink} #DigitalIncome #UEIEPCommunity`,
+  telegram: `🔥 Ready to boost your earnings? UEIEP offers daily assignments, AI video creation, and a powerful 4-level referral system. Start your journey to financial freedom today! ${referralData.referralLink} #DigitalIncome #UEIEPCommunity`,
   email: `Subject: Your Invitation to Universal Employment & Income Empowerment Platform!
 
 Dear [Friend's Name],
@@ -34,7 +34,7 @@ I highly recommend checking it out if you're looking for a flexible way to earn 
 
 Best regards,
 [Your Name]`,
-}
+};
 
 const shareableBanners = [
   {
@@ -61,7 +61,7 @@ const shareableBanners = [
     imageUrl: "/placeholder.svg?height=300&width=500&text=Banner+4",
     downloadUrl: "/placeholder.svg?height=300&width=500&text=Banner+4",
   },
-]
+];
 
 const videoCreatives = [
   {
@@ -88,10 +88,10 @@ const videoCreatives = [
     thumbnail: "/placeholder.svg?height=150&width=250&text=Video+3",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     caption:
-      "🤝 Build your network and earn passive income with UEIEP's 5-level referral system. Learn how! #ReferralMarketing #PassiveIncome",
+      "🤝 Build your network and earn passive income with UEIEP's 4-level referral system. Learn how! #ReferralMarketing #PassiveIncome",
     platforms: ["Social Media", "Telegram"],
   },
-]
+];
 
 export default function ReferralToolsPage() {
   const copyToClipboard = (text: string, type: string) => {

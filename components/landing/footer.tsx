@@ -153,7 +153,8 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 mt-1 text-primary dark:text-teal-400 flex-shrink-0" />
                 <span>
-                  AIR Staff colony Type III/No.25, Lamphel, P.O & PS Lamphel, Imphal West District. Manipur- 795001, India
+                  CIN: u62011mn2025ptc015390, GSTIN: 14AALCV3143M1Z2 Email:
+                  ai-veranix1@veranix-ai.com, www.veranix-ai.com
                 </span>
               </li>
               <li className="flex items-start gap-3">
@@ -162,7 +163,7 @@ export function Footer() {
                   href="mailto:support@ueiep.com"
                   className="hover:text-primary dark:hover:text-teal-400 transition-colors"
                 >
-                  spkhamrang@gmail.com
+                  ai-veranix1@veranix-ai.com
                 </a>
               </li>
               <li className="flex items-start gap-3">

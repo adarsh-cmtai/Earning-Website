@@ -20,13 +20,13 @@ const processSteps = [
     icon: UploadCloud,
     title: "Complete Tasks",
     description:
-      "Upload the content and complete simple daily assignments to start your earning journey.",
+      " Complete your daily task  Click the link, watch the content, and subscribe. Then download the materials and upload them to your approved social media account to begin earning.",
   },
   {
     icon: Banknote,
     title: "Earn & Withdraw",
     description:
-      "Watch your income grow and withdraw your earnings instantly and securely via UPI.",
+      "Track your earnings and withdraw anytime Watch your income grow—especially from your downline up to Level 4, which is clearly shown on your Downline page. You can withdraw anytime as long as your wallet has a balance.",
   },
 ];
 

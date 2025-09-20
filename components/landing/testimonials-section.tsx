@@ -5,45 +5,144 @@ import { motion, Variants } from "framer-motion";
 import React from "react";
 
 const testimonials = [
+  // --- 🇪🇺 Western/European Names ---
   {
     quote:
       "The transparency of the referral system is unmatched. I can track every single earning, and the daily payouts have been a game-changer.",
-    name: "Priya Sharma",
-    title: "Top Earner, Maharashtra",
+    name: "Olivia Bennett",
+    title: "Top Earner, United Kingdom",
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop",
   },
   {
     quote:
       "I had zero experience. The AI video tool made it incredibly easy to get started. I saw my first Social Media earnings in just two months!",
-    name: "Rajesh Kumar",
-    title: "Digital Creator, Delhi",
+    name: "Ethan Clarke",
+    title: "Digital Creator, USA",
     avatar:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop",
   },
   {
     quote:
       "The platform's support team is incredible. They are responsive, helpful, and genuinely invested in my success. It feels like a true partnership.",
-    name: "Anjali Singh",
-    title: "Community Leader, Bangalore",
+    name: "Isabella Moreau",
+    title: "Community Leader, France",
     avatar:
       "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1887&auto=format&fit=crop",
   },
   {
     quote:
       "The daily tasks are simple, yet effective. It's the most consistent and reliable online earning platform I have ever used. Highly recommended!",
-    name: "Vikram Rathod",
-    title: "Freelancer, Gujarat",
+    name: "Lucas Fischer",
+    title: "Freelancer, Germany",
     avatar:
       "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=2070&auto=format&fit=crop",
   },
   {
     quote:
-      "Building a downline was easier than I thought. The passive income from the 5-level system is real and grows every month.",
-    name: "Meena Desai",
-    title: "Network Marketer, Pune",
+      "Building a downline was easier than I thought. The passive income from the 4-level system is real and grows every month.",
+    name: "Amelia Novak",
+    title: "Network Marketer, Poland",
     avatar:
       "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1888&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "The transparency of the referral system is unmatched. I can track every single earning, and the daily payouts have been a game-changer.",
+    name: "Noah Jensen",
+    title: "Top Earner, Denmark",
+    avatar:
+      "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1888&auto=format&fit=crop",
+  },
+  // --- 🇮🇳 Central Indian Names ---
+  {
+    quote:
+      "I had zero experience. The AI video tool made it incredibly easy to get started. I saw my first Social Media earnings in just two months!",
+    name: "Rohan Verma",
+    title: "Digital Creator, Uttar Pradesh",
+    avatar:
+      "https://images.unsplash.com/photo-1624298357597-fd92dfbec01d?q=80&w=1887&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "The platform's support team is incredible. They are responsive, helpful, and genuinely invested in my success. It feels like a true partnership.",
+    name: "Sneha Tripathi",
+    title: "Community Leader, Madhya Pradesh",
+    avatar:
+      "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?q=80&w=1887&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "The daily tasks are simple, yet effective. It's the most consistent and reliable online earning platform I have ever used. Highly recommended!",
+    name: "Aniket Sharma",
+    title: "Top Earner, Rajasthan",
+    avatar:
+      "https://images.unsplash.com/photo-1522556189639-b150ed9c4331?q=80&w=1887&auto=format&fit=crop",
+  },
+  // --- 🌄 Northeast India Names ---
+  {
+    quote:
+      "Building a downline was easier than I thought. The passive income from the 4-level system is real and grows every month.",
+    name: "Mary Lyngdoh",
+    title: "Network Marketer, Meghalaya",
+    avatar:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "The transparency of the referral system is unmatched. I can track every single earning, and the daily payouts have been a game-changer.",
+    name: "Yurngam Ngalung",
+    title: "Top Earner, Manipur",
+    avatar:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "I had zero experience. The AI video tool made it incredibly easy to get started. I saw my first Social Media earnings in just two months!",
+    name: "Rakesh Ningthoujam",
+    title: "Digital Creator, Manipur",
+    avatar:
+      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1887&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "The platform's support team is incredible. They are responsive, helpful, and genuinely invested in my success. It feels like a true partnership.",
+    name: "Anjali Zeliang",
+    title: "Community Leader, Nagaland",
+    avatar:
+      "https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=1886&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "The daily tasks are simple, yet effective. It's the most consistent and reliable online earning platform I have ever used. Highly recommended!",
+    name: "David Haokip",
+    title: "Freelancer, Mizoram",
+    avatar:
+      "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?q=80&w=2070&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "Building a downline was easier than I thought. The passive income from the 4-level system is real and grows every month.",
+    name: "Arenla Jamir",
+    title: "Top Earner, Nagaland",
+    avatar:
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "The transparency of the referral system is unmatched. I can track every single earning, and the daily payouts have been a game-changer.",
+    name: "Moses Abonmai",
+    title: "Digital Creator, Assam",
+    avatar:
+      "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?q=80&w=1974&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "I had zero experience. The AI video tool made it incredibly easy to get started. I saw my first Social Media earnings in just two months!",
+    name: "Samuel Swer",
+    title: "Community Leader, Meghalaya",
+    avatar:
+      "https://images.unsplash.com/photo-1615109398623-88346a601842?q=80&w=1887&auto=format&fit=crop",
   },
 ];
 

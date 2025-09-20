@@ -22,7 +22,7 @@ const incomeSources = [
   {
     id: "referral",
     icon: Network,
-    title: "5-Level Referral Program",
+    title: "4-Level Referral Program",
     description:
       "Build a robust downline and earn passive income from the efforts of your network, up to five levels deep. Your growth fuels your earnings.",
   },
