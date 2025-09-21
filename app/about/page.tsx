@@ -33,20 +33,20 @@ const team = [
   {
     name: "APHI ABONMAI",
     role: "CEO UEIEP",
-    image: "/images/Home/testimonial1.jpg",
+    image: "/images/ceo.jpeg",
     description: "Visionary leader with 15+ years in AI and digital platforms.",
   },
   {
     name: "Priya Sharma",
     role: "Chief Technology Officer",
-    image: "/images/Home/testimonial1.jpg",
+    image: "/images/cta.webp",
     description:
       "AI research pioneer and specialist in generative content systems.",
   },
   {
     name: "Amit Patel",
     role: "Head of Operations",
-    image: "/images/Home/testimonial1.jpg",
+    image: "/images/hoo.webp",
     description:
       "Digital marketing ecosystem expert ensuring seamless user experience.",
   },
@@ -58,21 +58,21 @@ const values = [
     title: "Mission-Driven",
     description:
       "To democratize income opportunities through AI-powered content and strategic networking.",
-    bgUrl: "/images/Home/testimonial1.jpg",
+    bgUrl: "/images/m1.webp",
   },
   {
     icon: Users,
     title: "Community First",
     description:
       "Connecting like-minded individuals who support each other's growth and success.",
-    bgUrl: "/images/Home/testimonial1.jpg",
+    bgUrl: "/images/m2.webp",
   },
   {
     icon: Shield,
     title: "Unwavering Trust",
     description:
       "Your data and earnings are protected with bank-grade security and complete transparency.",
-    bgUrl: "/images/Home/testimonial1.jpg",
+    bgUrl: "/images/m3.webp",
   },
 ];
 
@@ -379,7 +379,7 @@ export default function AboutPage() {
             >
               <div className="md:col-span-1 flex justify-center">
                 <Image
-                  src="/images/Home/testimonial1.jpg"
+                  src="/images/ceo.jpeg"
                   alt="Rajesh Kumar"
                   width={160}
                   height={160}
