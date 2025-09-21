@@ -5,7 +5,7 @@ import { motion, Variants } from "framer-motion";
 import React from "react";
 
 const testimonials = [
-  // --- 🇪🇺 Western/European Names ---
+  // --- 🇪🇺 Western/European Names (6/9 shown, add 3 more for 9 total) ---
   {
     quote:
       "The transparency of the referral system is unmatched. I can track every single earning, and the daily payouts have been a game-changer.",
@@ -54,7 +54,32 @@ const testimonials = [
     avatar:
       "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1888&auto=format&fit=crop",
   },
-  // --- 🇮🇳 Central Indian Names ---
+  {
+    quote:
+      "The platform's community is vibrant and supportive. I've made friends from all over Europe while growing my income.",
+    name: "Sofia Rossi",
+    title: "Community Builder, Italy",
+    avatar:
+      "https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=1887&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "I appreciate the transparency and the regular updates. The platform truly cares about its users.",
+    name: "Jonas Müller",
+    title: "Content Creator, Switzerland",
+    avatar:
+      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1887&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "The referral rewards are generous and the system is easy to understand. I recommend it to anyone looking for extra income.",
+    name: "Emma Dubois",
+    title: "Influencer, Belgium",
+    avatar:
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1887&auto=format&fit=crop",
+  },
+
+  // --- 🇮🇳 Central Indian Names (3/9 shown, add 6 more for 9 total) ---
   {
     quote:
       "I had zero experience. The AI video tool made it incredibly easy to get started. I saw my first Social Media earnings in just two months!",
@@ -79,7 +104,56 @@ const testimonials = [
     avatar:
       "https://images.unsplash.com/photo-1522556189639-b150ed9c4331?q=80&w=1887&auto=format&fit=crop",
   },
-  // --- 🌄 Northeast India Names ---
+  {
+    quote:
+      "The payout process is smooth and timely. I never have to worry about my earnings.",
+    name: "Priya Singh",
+    title: "Freelancer, Bihar",
+    avatar:
+      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?q=80&w=1887&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "The training resources are excellent. I learned everything I needed to succeed online.",
+    name: "Amit Patel",
+    title: "Digital Marketer, Gujarat",
+    avatar:
+      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1887&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "I love the flexibility. I can work from anywhere and still earn a steady income.",
+    name: "Neha Gupta",
+    title: "Content Creator, Delhi",
+    avatar:
+      "https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=1887&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "The referral bonuses are a great motivation. My network is growing every day.",
+    name: "Vikram Joshi",
+    title: "Network Marketer, Maharashtra",
+    avatar:
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1887&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "The support team is always available and very helpful. I feel valued as a member.",
+    name: "Pooja Choudhary",
+    title: "Community Leader, Chhattisgarh",
+    avatar:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "The platform is user-friendly and perfect for beginners like me.",
+    name: "Sandeep Kumar",
+    title: "Top Earner, Madhya Pradesh",
+    avatar:
+      "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1888&auto=format&fit=crop",
+  },
+
+  // --- 🌄 Northeast India Names (8/12 shown, add 4 more for 12 total) ---
   {
     quote:
       "Building a downline was easier than I thought. The passive income from the 4-level system is real and grows every month.",
@@ -143,6 +217,38 @@ const testimonials = [
     title: "Community Leader, Meghalaya",
     avatar:
       "https://images.unsplash.com/photo-1615109398623-88346a601842?q=80&w=1887&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "The mentorship from senior members helped me grow my network quickly.",
+    name: "Lhingneilam Kipgen",
+    title: "Network Marketer, Manipur",
+    avatar:
+      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?q=80&w=1887&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "I love the community spirit and the opportunities to learn new skills.",
+    name: "Lalremruata Chhangte",
+    title: "Freelancer, Mizoram",
+    avatar:
+      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1887&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "The platform is inclusive and supports people from all backgrounds.",
+    name: "Nuchhungi Sailo",
+    title: "Content Creator, Mizoram",
+    avatar:
+      "https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=1887&auto=format&fit=crop",
+  },
+  {
+    quote:
+      "I never thought I could earn online, but this platform made it possible.",
+    name: "Tashi Bhutia",
+    title: "Top Earner, Sikkim",
+    avatar:
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1887&auto=format&fit=crop",
   },
 ];
 

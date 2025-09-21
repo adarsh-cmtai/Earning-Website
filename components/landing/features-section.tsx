@@ -26,7 +26,7 @@ const featuresList = [
     icon: Users,
     title: "Expansive Referral Network",
     description:
-      "Build your downline and earn compounding passive income from 5 levels of successful referrals, creating a sustainable growth engine for your brand.",
+      "Build your downline and earn compounding passive income from 4 levels of successful referrals, creating a sustainable growth engine for your brand.",
   },
   {
     icon: TrendingUp,

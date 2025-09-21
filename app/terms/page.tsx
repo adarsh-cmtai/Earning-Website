@@ -357,8 +357,8 @@ export default function TermsPage() {
                         <>
                           <h2>Referral Program</h2>
                           <p>
-                            You can earn commissions from the activity of Admins
-                            you refer, up to 5 levels deep. The commission
+                            You can earn commissions from the activity of users
+                            you refer, up to 4 levels deep. The commission
                             structure is detailed on our platform.
                             Self-referrals are prohibited.
                           </p>

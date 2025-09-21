@@ -31,8 +31,8 @@ import Image from "next/image";
 
 const team = [
   {
-    name: "Rajesh Kumar",
-    role: "Founder & CEO",
+    name: "APHI ABONMAI",
+    role: "CEO UEIEP",
     image: "/images/Home/testimonial1.jpg",
     description: "Visionary leader with 15+ years in AI and digital platforms.",
   },
@@ -394,7 +394,7 @@ export default function AboutPage() {
                   futures, one day at a time.
                 </blockquote>
                 <p className="mt-6 text-xl font-bold">""</p>
-                <p className="text-primary">Founder & CEO, UEIEP</p>
+                <p className="text-primary">CEO, UEIEP</p>
               </div>
             </motion.div>
           </div>
@@ -550,7 +550,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
               <div className="p-8 text-center bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 rounded-2xl">
                 <p className="text-5xl font-bold text-primary dark:text-teal-400">
-                  <AnimatedCounter to={10000} />+
+                  <AnimatedCounter to={10} />+
                 </p>
                 <p className="mt-2 text-slate-600 dark:text-slate-400">
                   Members Joined
@@ -558,18 +558,26 @@ export default function AboutPage() {
               </div>
               <div className="p-8 text-center bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 rounded-2xl">
                 <p className="text-5xl font-bold text-primary dark:text-teal-400">
-                  <AnimatedCounter to={5000} isCurrency={true} />+
+                  <AnimatedCounter to={0} isCurrency={true} />
                 </p>
                 <p className="mt-2 text-slate-600 dark:text-slate-400">
                   Earnings Distributed
                 </p>
               </div>
               <div className="p-8 text-center bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 rounded-2xl">
-                <p className="text-5xl font-bold text-primary dark:text-teal-400">
-                  <AnimatedCounter to={25} />+
+                <p className="flex justify-center mb-2">
+                  <span className="inline-block text-5xl text-primary dark:text-teal-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
+                      <path d="M2 12h20M12 2v20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    </svg>
+                  </span>
+                </p>
+                <p className="text-2xl font-bold text-primary dark:text-teal-400">
+                  Universal
                 </p>
                 <p className="mt-2 text-slate-600 dark:text-slate-400">
-                  States Covered
+                  No State Boundaries
                 </p>
               </div>
               <div className="p-8 text-center bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 rounded-2xl">

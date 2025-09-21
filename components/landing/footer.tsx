@@ -153,8 +153,25 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 mt-1 text-primary dark:text-teal-400 flex-shrink-0" />
                 <span>
-                  CIN: u62011mn2025ptc015390, GSTIN: 14AALCV3143M1Z2 Email:
-                  ai-veranix1@veranix-ai.com, www.veranix-ai.com
+                  <strong>CIN:</strong> U62011MN2025PTC015390<br />
+                  <strong>GSTIN:</strong> 14AALCV3143M1Z2<br />
+                  <strong>Email:</strong>{" "}
+                  <a
+                    href="mailto:ai-veranix1@veranix-ai.com"
+                    className="hover:text-primary dark:hover:text-teal-400 transition-colors"
+                  >
+                    ai-veranix1@veranix-ai.com
+                  </a>
+                  <br />
+                  <strong>Website:</strong>{" "}
+                  <a
+                    href="https://www.veranix-ai.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary dark:hover:text-teal-400 transition-colors"
+                  >
+                    www.veranix-ai.com
+                  </a>
                 </span>
               </li>
               <li className="flex items-start gap-3">

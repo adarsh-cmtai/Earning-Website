@@ -106,7 +106,7 @@ export function Header() {
               <span>Special launch offer ends this week!</span>
             </div>
             <div className="hidden md:flex items-center gap-4">
-              <a href="mailto:support@ueiep.com" className="flex items-center gap-1.5 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"><Mail size={14} /><span>spkhamrang@gmail.com</span></a>
+              <a href="mailto:support@ueiep.com" className="flex items-center gap-1.5 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"><Mail size={14} /><span>ai-veranix1@veranix-ai.com</span></a>
               <div className="h-4 w-px bg-slate-300 dark:bg-slate-600"></div>
               <div className="flex items-center gap-3">
                 {socialLinks.map(link => (
