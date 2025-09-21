@@ -96,7 +96,7 @@ export function HeroSection() {
             </Button>
           </motion.div>
 
-          <motion.div
+          {/* <motion.div
             variants={fadeIn}
             className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto text-white"
           >
@@ -105,10 +105,8 @@ export function HeroSection() {
               <div className="mt-1 text-slate-300">Active Admins</div>
             </div>
 
-            {/* --- UPDATED STATS BLOCK FOR BETTER RESPONSIVENESS --- */}
             <div className="text-center border-t border-white/20 md:border-t-0 md:border-l pt-6 md:pt-0 md:pl-6">
               <div className="text-4xl font-semibold">₹50L+</div>
-              {/* Reduced font size here to prevent hiding on larger screens */}
               <div className="text-2xl font-semibold">needs to rectified</div>
               <div className="mt-1 text-slate-300">Total Earnings</div>
             </div>
@@ -117,7 +115,8 @@ export function HeroSection() {
               <div className="text-4xl font-semibold">95%</div>
               <div className="mt-1 text-slate-300">Success Rate</div>
             </div>
-          </motion.div>
+          </motion.div> */}
+          
         </motion.div>
       </div>
     </section>
