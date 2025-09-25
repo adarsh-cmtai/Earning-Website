@@ -136,7 +136,7 @@ export function IncomeStreamsSection() {
                     <p className="text-center text-gray-600 dark:text-slate-400 mb-8 max-w-xl mx-auto">
                       A 10% monthly contribution from your team's social media
                       earnings is distributed as a 20% commission to each of the
-                      five upline levels.
+                      four upline levels.
                     </p>
 
                     {/* The Tree Structure */}
