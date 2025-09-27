@@ -24,7 +24,7 @@ const incomeSources = [
     icon: Network,
     title: "4-Level Referral Program",
     description:
-      "Build a robust downline and earn passive income from the efforts of your network, up to five levels deep. Your growth fuels your earnings.",
+      "Build a robust downline and earn passive income from the efforts of your network, up to four levels deep. Your growth fuels your earnings.",
   },
 ];
 
